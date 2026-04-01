@@ -1,33 +1,23 @@
 package com.selenium.javaSelenium;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 public class Selenium_Demo1 {
-	
-	public static void main(String[] args) {
-		
-		 System.setProperty("webdriver.edge.driver", "C:\\Users\\Sowndariya\\Downloads\\edgedriver_win64\\msedgedriver.exe");
-		WebDriver driver = new EdgeDriver();
-		driver.manage().window().maximize();
-		
-		driver.get("https://www.flipkart.com/");
 
-	        System.out.println("Running in Jenkins without browser");
-	        System.out.println("Page title: " + driver.getTitle());
-	        System.out.println("Title length: " + driver.getTitle().length());
-
-	        if (driver.getCurrentUrl().equals("https://www.flipkart.com/")) {
-	            System.out.println("Correct page opened: " +driver.getCurrentUrl() );
-	        } else {
-	            System.out.println("Invalid page");
-	        }
-
-	        System.out.println("Page source length: " + driver.getPageSource().length());
-	        System.out.println("Execution completed successfully");
-		
-		driver.close();
-		
-		
-	}
+		public static void main(String[] args) {
+			WebDriver driver = new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.get("https://www.flipkart.com/");
+			String page=driver.getTitle();
+			int titleLength= driver.getTitle().length();
+			System.out.println("The Page title is:"+page);
+			System.out.println("The page Title Length:"+titleLength);
+			System.out.println(driver.getCurrentUrl());
+			String pageSource=driver.getPageSource();
+			int lengthSource=driver.getPageSource().length();
+			System.out.println("The page Source:"+pageSource);
+			System.out.println("The Page Source length:"+lengthSource);
+			driver.close();
+		}
 }
 
 /*
