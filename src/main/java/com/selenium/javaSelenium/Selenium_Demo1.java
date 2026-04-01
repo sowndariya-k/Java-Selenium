@@ -1,58 +1,36 @@
 package com.selenium.javaSelenium;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class Selenium_Demo1 {
+	
+	public static void main(String[] args) {
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://www.flipkart.com/");
 
-    public static void main(String[] args) {
+	        System.out.println("Running in Jenkins without browser");
+	        System.out.println("Page title: " + driver.getTitle());
+	        System.out.println("Title length: " + driver.getTitle().length());
 
-        WebDriverManager.edgedriver().setup();
+	        if (driver.getCurrentUrl().equals("https://www.flipkart.com/")) {
+	            System.out.println("Correct page opened: " +driver.getCurrentUrl() );
+	        } else {
+	            System.out.println("Invalid page");
+	        }
 
-        EdgeOptions options = new EdgeOptions();
-
-        String headless = System.getProperty("headless", "true");
-
-        if (headless.equalsIgnoreCase("true")) {
-            options.addArguments("--headless=new");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--window-size=1920,1080");
-            System.out.println("Running in HEADLESS mode (Jenkins)");
-        } else {
-            System.out.println("Running in NORMAL mode (Local)");
-        }
-
-        WebDriver driver = new EdgeDriver(options);
-
-        try {
-            System.out.println("Launching browser...");
-
-            driver.manage().window().maximize();
-            driver.get("https://www.flipkart.com/");
-
-            String title = driver.getTitle();
-            System.out.println("Page title: " + title);
-            System.out.println("Title length: " + title.length());
-
-            String currentUrl = driver.getCurrentUrl();
-            if (currentUrl.contains("flipkart")) {
-                System.out.println("Correct page opened: " + currentUrl);
-            } else {
-                System.out.println("Invalid page");
-            }
-
-            System.out.println("Page source length: " + driver.getPageSource().length());
-
-            System.out.println("Execution completed successfully");
-
-        } catch (Exception e) {
-            System.out.println("Execution failed");
-            e.printStackTrace();
-        } finally {
-            driver.quit();
-        }
-    }
+	        System.out.println("Page source length: " + driver.getPageSource().length());
+	        System.out.println("Execution completed successfully");
+		
+		driver.close();
+		
+		
+	}
 }
+
+/*
+ * get page title, get title length
+ * print title and also length in eclipse console, 
+ * get page url verify the correct page opens, 
+ * 
+*/

@@ -31,33 +31,29 @@
       <version>5.7.1</version>
       <scope>test</scope>
     </dependency>
-   <!-- Selenium -->
     <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.41.0</version>
-    </dependency>
-
-    <!-- WebDriverManager -->
-    <dependency>
-        <groupId>io.github.bonigarcia</groupId>
-        <artifactId>webdrivermanager</artifactId>
-        <version>5.8.0</version>
-    </dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.41.0</version>
+    <scope>compile</scope>
+  </dependency>
   </dependencies>
 
   <build>
     <plugins>
     
     <plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>exec-maven-plugin</artifactId>
-    <version>3.1.0</version>
-    <configuration>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>3.1.0</version>
+      <configuration>
         <mainClass>com.selenium.javaSelenium.Selenium_Demo1</mainClass>
-    </configuration>
-</plugin>
-
+        <includeProjectDependencies>true</includeProjectDependencies>
+        <includePluginDependencies>true</includePluginDependencies>
+        <cleanupDaemonThreads>false</cleanupDaemonThreads>
+      </configuration>
+    </plugin>
+    
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
