@@ -1,5 +1,7 @@
 package com.selenium.javaSelenium;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,8 +13,10 @@ public class NOWaitImplemented {
         driver.manage().window().maximize();
         driver.get("https://omayo.blogspot.com/");
         driver.findElement(By.className("dropbtn")).click();
-        Thread.sleep(3000);
+        //Thread.sleep(5000)
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.linkText("Facebook")).click();
+        driver.quit();
 	}
 
 }
