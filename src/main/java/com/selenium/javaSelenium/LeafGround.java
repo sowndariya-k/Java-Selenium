@@ -41,7 +41,7 @@ public class LeafGround {
         System.out.println("Loader disappeared");
 
         
-        // 3. Wait for clickabla
+        // 3. Wait for clickable
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Click First Button')]")
         )).click();
 
