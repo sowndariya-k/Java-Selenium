@@ -36,6 +36,11 @@
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.5.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.Library_Managment_system</groupId>
+			<artifactId>LMS</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
